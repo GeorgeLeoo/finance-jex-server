@@ -6,12 +6,19 @@ exports.resolve = function (dir) {
 }
 
 exports.renderSchema = function (collectionName, collectionStructure) {
+    const lastChar = collectionName[collectionName.length - 1]
+    let suffix = 's'
+    if (lastChar === 'y') {
+        collectionName = collectionName.substring(0, collectionName.length - 1)
+        suffix = 'ies'
+    }
+    
   return `// Auto build by build/index.js
   
 const db = require('../../db/conn')
 const Schema = db.Schema
 const JexSchema = new Schema(${collectionStructure})
-module.exports = db.model('${collectionName}s', JexSchema)
+module.exports = db.model('${collectionName}${suffix}', JexSchema)
 `
 }
 

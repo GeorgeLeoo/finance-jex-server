@@ -7,30 +7,43 @@
       "type": "String"
     }
   },
-  "Article": {
-    "title": {
-      "type": "String"
+  "Bill": {
+    "iconSelectedId": {
+      "type": "Schema.Types.ObjectId",
+      "ref": "Category"
     },
     "user": {
       "type": "Schema.Types.ObjectId",
       "ref": "Users"
     },
-    "content": {
+    "date": {
+      "type": "String"
+    },
+    "week": {
+      "type": "String"
+    },
+    "money": {
+      "type": "String"
+    },
+    "note": {
+      "type": "String"
+    },
+    "type": {
       "type": "String"
     }
   },
-  "ArticleScore": {
-    "score": {
-      "type": "Number"
+  "Category": {
+    "text": {
+      "type": "String"
     },
-    "money": {
-      "type": "Number"
+    "icon": {
+      "type": "String"
     },
     "user": {
       "type": "Schema.Types.ObjectId",
       "ref": "Users"
     },
-    "remark": {
+    "type": {
       "type": "String"
     }
   }
